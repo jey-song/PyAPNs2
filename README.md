@@ -13,10 +13,10 @@ Either download the source from GitHub or use easy_install:
 from apns2.client import APNsClient
 from apns2.payload import Payload
 
-token_hex = 'b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b87'
-payload = Payload(alert="Hello World!", sound="default", badge=1)
-client = APNsClient('key.pem', use_sandbox=False, use_alternative_port=False)
-client.send_notification(token_hex, payload)
+token_hex = 'bb1ee6479f2954d43bfb7e857d69a31296ff7c86670bd9b39ad8102638e9709d'
+payload = Payload(alert="Hello World!", sound="default", badge=1, mutable_content=True, ext={"t":"","url":"www.baidu.com"})
+client = APNsClient('key.pem', use_sandbox=True)
+client.send_notification(token_hex, payload, topic='com.xxx.xxx')
 ```
 
 ## Further Info
